@@ -191,7 +191,7 @@ class LinkedList:
   
     ## Advanced/ Exercises
     # returns the value at the middle element in the singly linked list
-    # Time Complexity: O(n^2)
+    # Time Complexity: O(2n)
     # Space Complexity: O(1)
     def find_middle_value(self):
         ll_length = self.length()
