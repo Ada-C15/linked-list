@@ -161,23 +161,23 @@ def test_find_max_on_list_where_max_is_middle_item(list):
 def test_delete_on_empty_list_returns_none(list):
     assert list.delete(2) == None
 
-def test_delete_can_remove_last_element_of_list(list):
-    list.add_first(5)
-    list.add_first(4)
-    list.add_first(3)
-    list.delete(3)
-    assert list.get_first() == 5
-    assert list.length() == 2
-    assert list.get_last() == 4
-
 def test_delete_can_remove_first_element_of_list(list):
     list.add_first(5)
     list.add_first(4)
     list.add_first(3)
-    list.delete(5)
+    list.delete(3)
     assert list.get_first() == 4
     assert list.length() == 2
-    assert list.get_last() == 3
+    assert list.get_last() == 5
+
+def test_delete_can_remove_last_element_of_list(list):
+    list.add_first(5)
+    list.add_first(4)
+    list.add_first(3)
+    list.delete(5)
+    assert list.get_first() == 3
+    assert list.length() == 2
+    assert list.get_last() == 4
 
 def test_delete_can_remove_middle_element_of_list(list):
     list.add_first(5)
