@@ -114,27 +114,55 @@ class LinkedList:
         while current != None:
             if max_val < current.value:
                 max_val = current.value
-            current = current.value
+            current = current.next
         
         return max_val
 
     # method to delete the first node found with specified value
     # Time Complexity: O(n)
     # Space Complexity: O(1)
-    def delete(self, value):
+    def deleteold(self, value):
         if self.head == None:
             return None
         
         if self.head.value == value:
             self.head = self.head.next
-            return
+            return True
         else:
             current = self.head
-            while current.next:
-                if current.next.value == value:
-                    return
+            while current.next != None:
+                if current.value == value:
+
+                    return True
+            current = current.next
+        return False
+
+    def delete(self, value):
+        current = self.head
+        prev = None
+        while current.next != None:
+            if current.value == value:
+                
+                # prev is None (head to be deleted)
+                if (prev == None):
+                    self.head = current.next
+                    return True
+
+                # prev is differen from current (middle noide delete)
+                elif (current.next != None):
+                    prev.next = current.next
+                    return True
+
+                # node to deleted is last one
+                else:
+                    prev.next = None
+                    return True
+
+            prev = current
             current = current.next
 
+        return False
+        
     # method to print all the values in the linked list
     # Time Complexity: O(n)
     # Space Complexity: O(1)
