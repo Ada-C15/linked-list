@@ -121,45 +121,38 @@ class LinkedList:
     # method to delete the first node found with specified value
     # Time Complexity: O(n)
     # Space Complexity: O(1)
-    def deleteold(self, value):
-        if self.head == None:
-            return None
-        
-        if self.head.value == value:
-            self.head = self.head.next
-            return True
-        else:
-            current = self.head
-            while current.next != None:
-                if current.value == value:
-
-                    return True
-            current = current.next
-        return False
 
     def delete(self, value):
+        list_length = self.length()
+
+        if list_length == 0:
+            return None
+
         current = self.head
         prev = None
-        while current.next != None:
+
+        while current and current.next != None:
             if current.value == value:
-                
                 # prev is None (head to be deleted)
                 if (prev == None):
+                    #print("Delete head element")
                     self.head = current.next
                     return True
 
                 # prev is differen from current (middle noide delete)
-                elif (current.next != None):
+                elif (current and current.next != None):
+                    #print("Delete middle element")
                     prev.next = current.next
-                    return True
-
-                # node to deleted is last one
-                else:
-                    prev.next = None
                     return True
 
             prev = current
             current = current.next
+
+        if (current.value == value):
+            # node to deleted is last one
+            #print("Delete last element")
+            prev.next = None
+            return True
 
         return False
         
