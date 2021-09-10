@@ -14,7 +14,7 @@ class LinkedList:
     # returns the value in the first node
     # returns None if the list is empty
     # Time Complexity: O(1)
-    # Space Complexity: O(1)
+    # Space Complexity: O(n)
     def get_first(self):
         if self.head == None:
             return None
@@ -24,7 +24,7 @@ class LinkedList:
     # method to add a new node with the specific data value in the linked list
     # insert the new node at the beginning of the linked list
     # Time Complexity: O(1)
-    # Space Complexity: O(1)
+    # Space Complexity: O(n)
 
     def add_first(self, value):
         new_node = Node(value)
