@@ -151,8 +151,8 @@ class LinkedList:
 
     # method to reverse the singly linked list
     # note: the nodes should be moved and not just the values in the nodes
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
     def reverse(self):
         current = self.head
         prev = None
@@ -164,28 +164,59 @@ class LinkedList:
             current = temp
 
         self.head = prev
-  
+
     ## Advanced/ Exercises
     # returns the value at the middle element in the singly linked list
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
     def find_middle_value(self):
-        pass
+        outside_walker = self.head
+        mid_walker = self.head
+        count = 0
+
+        while outside_walker:
+            outside_walker = outside_walker.next
+            count += 1
+            if count % 2 == 0:
+                mid_walker = mid_walker.next
+
+        return mid_walker.value
 
     # find the nth node from the end and return its value
     # assume indexing starts at 0 while counting to n
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
     def find_nth_from_end(self, n):
-        pass
+        outside_walker = self.head
+        nth_walker = self.head
+        count = 0
+
+        while outside_walker:
+            outside_walker = outside_walker.next
+            if count > n:
+                nth_walker = nth_walker.next
+            count += 1
+
+        if count < n +1:
+            return None
+        return nth_walker.value
 
     # checks if the linked list has a cycle. A cycle exists if any node in the
     # linked list links to a node already visited.
     # returns true if a cycle is found, false otherwise.
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(n)
     def has_cycle(self):
-        pass
+        seen_set = set(())
+        current = self.head
+
+        while current:
+            if current in seen_set:
+                return True
+            seen_set.add(current)
+            current = current.next
+
+        return False
 
     # Helper method for tests
     # Creates a cycle in the linked list for testing purposes
