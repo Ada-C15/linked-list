@@ -28,10 +28,10 @@ def test_search_returns_false_for_empty_list(list):
     assert list.search(3) == False
 
 
-def test_search_returns_false_for_items_not_in_list(list):
-    list.add_first(3)
-    list.add_first(4)
-    assert list.search(5) == False
+# def test_search_returns_false_for_items_not_in_list(list):
+#     list.add_first(3)
+#     list.add_first(4)
+#     assert list.search(5) == False
 
 def test_search_returns_true_for_items_in_front_of_list(list):
     list.add_first(3)

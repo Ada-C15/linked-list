@@ -36,13 +36,16 @@ class LinkedList:
     # Time Complexity: ?
     # Space Complexity: ?
     def search(self, value):
+
+        item = self.head
         if self.head == None:
             return False
         
-        item = self.head
+        
         while item is not None:
             if item.value == value:
                 return True
+            item = item.next
 
 
         
@@ -111,7 +114,7 @@ class LinkedList:
     # Space Complexity: ?
     def reverse(self):
         pass
-  
+
     ## Advanced/ Exercises
     # returns the value at the middle element in the singly linked list
     # Time Complexity: ?
