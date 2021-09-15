@@ -9,7 +9,7 @@ class Node:
 # Defines the singly linked list
 class LinkedList:
     def __init__(self):
-      self.head = None # keep the head private. Not accessible outside this class
+        self.head = None # keep the head private. Not accessible outside this class
 
     # returns the value in the first node
     # returns None if the list is empty
@@ -19,12 +19,15 @@ class LinkedList:
         pass
 
 
+
     # method to add a new node with the specific data value in the linked list
     # insert the new node at the beginning of the linked list
     # Time Complexity: ?
     # Space Complexity: ?
     def add_first(self, value):
-        pass
+        new_node = Node(value)
+        new_node.next = head 
+        return new_node 
 
     # method to find if the linked list contains a node with specified value
     # returns true if found, false otherwise
@@ -90,7 +93,7 @@ class LinkedList:
     # Space Complexity: ?
     def reverse(self):
         pass
-  
+
     ## Advanced/ Exercises
     # returns the value at the middle element in the singly linked list
     # Time Complexity: ?
