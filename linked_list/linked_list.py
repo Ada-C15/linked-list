@@ -34,7 +34,7 @@ class LinkedList:
     def search(self, value):
         current = self.head
         while current != None:
-            if current.data == value:
+            if current.value == value:
                 return True
             current = current.next
         return False
@@ -43,9 +43,9 @@ class LinkedList:
     # Time Complexity: ?
     # Space Complexity: ?
     def length(self):
-        if self.head == None:
-            return 0
-        counter = 1
+        # if self.head == None:
+        #     return 0
+        counter = 0
         current = self.head
         while current != None:
             counter += 1
