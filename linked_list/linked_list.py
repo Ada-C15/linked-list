@@ -101,18 +101,44 @@ class LinkedList:
 
     # method to return the max value in the linked list
     # returns the data value and not the node
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
     def find_max(self):
-        pass
+        if not self.head:
+            return None
+
+        max_hold = self.head.value
+        current = self.head
+
+        while current:
+            if max_hold < current.value:
+                max_hold = current.value
+            current = current.next
+        
+        return max_hold
 
     # method to delete the first node found with specified value
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
     def delete(self, value):
-        pass
+        if not self.head:
+            return None
+
+        current = self.head
+
+        if current.value == value:
+            self.head = current.next
+            return
+
+        while current and current.next:
+            if current.next.value == value:
+                current.next = current.next.next
+                return
+            current = current.next
 
     # method to print all the values in the linked list
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(n)
     def visit(self):
         helper_list = []
         current = self.head
@@ -128,7 +154,16 @@ class LinkedList:
     # Time Complexity: ?
     # Space Complexity: ?
     def reverse(self):
-        pass
+        current = self.head
+        prev = None
+
+        while current:
+            temp = current.next
+            current.next = prev
+            prev = current
+            current = temp
+
+        self.head = prev
   
     ## Advanced/ Exercises
     # returns the value at the middle element in the singly linked list
