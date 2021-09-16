@@ -18,13 +18,11 @@ class LinkedList:
             return None
         return self.head.value
 
-
-    # method to add a new node with the specific data value in the linked list
-    # insert the new node at the beginning of the linked list
     # Time Complexity: ?
     # Space Complexity: ?
     def add_first(self, value):
-        pass
+        self.head = Node(value, self.head)
+
 
     # method to find if the linked list contains a node with specified value
     # returns true if found, false otherwise
