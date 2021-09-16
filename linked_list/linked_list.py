@@ -95,11 +95,19 @@ class LinkedList:
             current = current.next
         return max_value
 
-    # method to delete the first node found with specified value
-    # Time Complexity: ?
+	# Time Complexity: ?
     # Space Complexity: ?
     def delete(self, value):
-        pass
+        if self.head is None:
+            return None
+        current = self.head
+        if current.value == value:
+            self.head = current.next
+        while current.next:
+            if current.next.value == value:
+                current.next = current.next.next
+                return
+            current = current.next
 
     # method to print all the values in the linked list
     # Time Complexity: ?
