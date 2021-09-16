@@ -23,13 +23,17 @@ class LinkedList:
     def add_first(self, value):
         self.head = Node(value, self.head)
 
-
-    # method to find if the linked list contains a node with specified value
-    # returns true if found, false otherwise
     # Time Complexity: ?
     # Space Complexity: ?
     def search(self, value):
-        pass
+        if self.head is None:
+            return False
+        current = self.head
+        while current.value != value:
+            current = current.next
+        if current.value == value:
+            return True
+        return False
 
     # method that returns the length of the singly linked list
     # Time Complexity: ?
