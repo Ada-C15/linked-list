@@ -47,13 +47,19 @@ class LinkedList:
             current = current.next
         return count
 
-    # method that returns the value at a given index in the linked list
-    # index count starts at 0
-    # returns None if there are fewer nodes in the linked list than the index value
-    # Time Complexity: ?
+	# Time Complexity: ?
     # Space Complexity: ?
     def get_at_index(self, index):
-        pass
+        if self.head is None:
+            return None
+        index_count = 0
+        current = self.head
+        while index_count < index and current.next:
+            current = current.next
+            index_count += 1
+        if index_count == index:
+            return current.value
+        return None
 
     # method that returns the value of the last node in the linked list
     # returns None if the linked list is empty
