@@ -85,7 +85,15 @@ class LinkedList:
     # method to return the max value in the linked list
     # returns the data value and not the node
     def find_max(self):
-        pass
+        if self.head is None:
+            return None
+        current = self.head
+        max_value = current.value
+        while current:
+            if max_value < current.value:
+                max_value = current.value
+            current = current.next
+        return max_value
 
     # method to delete the first node found with specified value
     # Time Complexity: ?
