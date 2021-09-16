@@ -123,11 +123,12 @@ class LinkedList:
     # Space Complexity: O(1)
 
     def delete(self, value):
+        #1. Check if the list is empty
         list_length = self.length()
-
         if list_length == 0:
             return None
 
+        #if the node to be deleted is the head node
         current = self.head
         prev = None
 
@@ -139,7 +140,7 @@ class LinkedList:
                     self.head = current.next
                     return True
 
-                # prev is differen from current (middle noide delete)
+                # prev is different from current (middle noide delete)
                 elif (current and current.next != None):
                     #print("Delete middle element")
                     prev.next = current.next
@@ -174,9 +175,11 @@ class LinkedList:
     # Time Complexity: O(n)
     # Space Complexity: O(1)
     def reverse(self):
+        #check if the list is empty
         if self.head == None:
             return None
         
+        #set current to head
         current = self.head
         previous = None
 
