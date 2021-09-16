@@ -35,11 +35,17 @@ class LinkedList:
             return True
         return False
 
-    # method that returns the length of the singly linked list
-    # Time Complexity: ?
+	# Time Complexity: ?
     # Space Complexity: ?
     def length(self):
-        pass
+        if self.head is None:
+            return 0
+        count = 1
+        current = self.head
+        while current.next:
+            count += 1
+            current = current.next
+        return count
 
     # method that returns the value at a given index in the linked list
     # index count starts at 0
