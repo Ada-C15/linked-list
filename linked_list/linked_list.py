@@ -71,11 +71,16 @@ class LinkedList:
             current = current.next
         return current.value
 
-    # method that inserts a given value as a new last node in the linked list
-    # Time Complexity: ?
+	# Time Complexity: ?
     # Space Complexity: ?
     def add_last(self, value):
-        pass
+        if self.head is None:
+            self.add_first(value)
+            return
+        current = self.head
+        while current.next:
+            current = current.next
+        current.next = Node(value)
 
     # method to return the max value in the linked list
     # returns the data value and not the node
