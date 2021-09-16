@@ -61,12 +61,15 @@ class LinkedList:
             return current.value
         return None
 
-    # method that returns the value of the last node in the linked list
-    # returns None if the linked list is empty
     # Time Complexity: ?
     # Space Complexity: ?
     def get_last(self):
-        pass
+        if self.head is None:
+            return None
+        current = self.head
+        while current.next:
+            current = current.next
+        return current.value
 
     # method that inserts a given value as a new last node in the linked list
     # Time Complexity: ?
