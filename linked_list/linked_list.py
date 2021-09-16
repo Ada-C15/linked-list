@@ -11,12 +11,12 @@ class LinkedList:
     def __init__(self):
       self.head = None # keep the head private. Not accessible outside this class
 
-    # returns the value in the first node
-    # returns None if the list is empty
     # Time Complexity: ?
     # Space Complexity: ?
     def get_first(self):
-        pass
+        if self.head is None:
+            return None
+        return self.head.value
 
 
     # method to add a new node with the specific data value in the linked list
