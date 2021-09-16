@@ -116,7 +116,9 @@ class LinkedList:
     # Time Complexity: O(n)
     # Space Complexity: O(1)
     def delete(self, value):
-        if self.head.value == value:
+        if self.head == None:
+            return None
+        elif self.head.value == value:
             self.head = self.head.next
             return None
         
