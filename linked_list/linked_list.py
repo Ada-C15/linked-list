@@ -17,7 +17,7 @@ class LinkedList:
         Note: No reference changes here, since we're just getting the value of a node
 
         Time Complexity: O(1)
-        Space Complexity:  O(n)
+        Space Complexity:  O(1)
         """
 
         # this one is pretty obvious but just have to remember that the list head is always
@@ -33,7 +33,7 @@ class LinkedList:
         Note: This method always results in 2 reference changes
 
         Time Complexity: O(1)
-        Space Complexity:  O(n)
+        Space Complexity:  O(1)
         """
 
         # 1. First create the node to be added, using the passed in value and 
@@ -48,7 +48,7 @@ class LinkedList:
         Note: 
 
         Time Complexity:  O(n)
-        Space Complexity:  O(n)
+        Space Complexity:  O(1)
         """
         # 1. If the list is empty, then we auto return False
         if self.head is None:
@@ -77,7 +77,7 @@ class LinkedList:
         Note: 
 
         Time Complexity: O(n)
-        Space Complexity:  O(n)
+        Space Complexity:  O(1)
         """
         # 1. The length is 0 if there is no head
         if not self.head:
@@ -103,7 +103,7 @@ class LinkedList:
         Note: 
 
         Time Complexity: O(n)
-        Space Complexity: O(n) 
+        Space Complexity: O(1) 
         """
         # 1. Return None of there is no head 
         if not self.head:
@@ -129,7 +129,7 @@ class LinkedList:
         Note:  
 
         Time Complexity: O(n)
-        Space Complexity: 0(n)
+        Space Complexity: 0(1)
         """
         # 1. The linked list is empty if there is no head 
         if self.head is None:
@@ -179,7 +179,7 @@ class LinkedList:
         Note: 
 
         Time Complexity: O(n)
-        Space Complexity: O(n)
+        Space Complexity: O(1)
         """
         if self.head is None:
             return 
@@ -206,7 +206,7 @@ class LinkedList:
         Note: Changing one or two references regardless of list length
 
         Time Complexity: O(1)
-        Space Complexity: O(n)
+        Space Complexity: O(1)
         """
         # 1. can't delete a node if list is empty 
         if self.head is None:
@@ -257,7 +257,7 @@ class LinkedList:
         Note: 
 
         Time Complexity: O(n)
-        Space Complexity: O(n)
+        Space Complexity: O(1)
         """
         previous_node = None
         this_node = self.head
