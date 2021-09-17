@@ -1,7 +1,6 @@
 
 # Defines a node in the singly linked list
 class Node:
-
     def __init__(self, value, next_node = None):
         self.value = value
         self.next = next_node
@@ -9,67 +8,131 @@ class Node:
 # Defines the singly linked list
 class LinkedList:
     def __init__(self):
-      self.head = None # keep the head private. Not accessible outside this class
+        self.head = None # keep the head private. Not accessible outside this class
 
     # returns the value in the first node
     # returns None if the list is empty
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(1)
+    # Space Complexity: O(1)
     def get_first(self):
-        pass
+        if self.head == None:
+            return None
+        else: 
+            return self.head.value
 
 
     # method to add a new node with the specific data value in the linked list
     # insert the new node at the beginning of the linked list
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(1)
+    # Space Complexity: O(1)
     def add_first(self, value):
-        pass
-
+        self.head = Node(value, self.head)
+        
     # method to find if the linked list contains a node with specified value
     # returns true if found, false otherwise
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
     def search(self, value):
-        pass
+        current = self.head
+
+        while current != None:
+            if current.value == value:
+                return True
+            current = current.next 
+        return False
 
     # method that returns the length of the singly linked list
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
     def length(self):
-        pass
+        if self.head == None:
+            return 0
+        current = self.head
+        count = 0
+
+        while current != None:
+            count += 1
+            current = current.next
+            print(count)
+        return count
+
 
     # method that returns the value at a given index in the linked list
     # index count starts at 0
     # returns None if there are fewer nodes in the linked list than the index value
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
     def get_at_index(self, index):
-        pass
+        current = self.head
+        current_index = 0
+        if current == None:
+            return None
+
+        while current != None and current_index <= index:
+            if current_index == index:
+                return current.value
+            current = current.next
+            current_index += 1
+        return None 
+
 
     # method that returns the value of the last node in the linked list
     # returns None if the linked list is empty
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
     def get_last(self):
-        pass
+        if self.head == None:
+            return None
+        
+        current = self.head
+        while current.next != None:
+            current = current.next
+        return current.value 
 
     # method that inserts a given value as a new last node in the linked list
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
     def add_last(self, value):
-        pass
+        current = self.head
+        if current == None:
+            self.head = Node(value)
+        else:
+            while current.next != None:
+                current = current.next
+            current.next = Node(value)
 
     # method to return the max value in the linked list
     # returns the data value and not the node
     def find_max(self):
-        pass
+        current = self.head
+        if current == None: 
+            return None
+        
+        max = current.value
+        while current != None:
+            if current.value > max: 
+                max = current.value
+            current = current.next
+        return max
 
     # method to delete the first node found with specified value
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(1)
+    # Space Complexity: O(1)
     def delete(self, value):
-        pass
+        if self.head == None: 
+            return None
+
+        elif self.head.value == value:
+            self.head = self.head.next
+            return None 
+
+        current = self.head
+        while current != None:
+            if current.next.value == value:
+                current.next = current.next.next
+                return None
+            current = current.next
+
 
     # method to print all the values in the linked list
     # Time Complexity: ?
@@ -86,10 +149,22 @@ class LinkedList:
 
     # method to reverse the singly linked list
     # note: the nodes should be moved and not just the values in the nodes
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)2
+    # Space Complexity: O(n)2
     def reverse(self):
-        pass
+        previous = None
+        current = self.head
+        temp = self.head
+
+        if current == None:
+            return None
+
+        while current != None: 
+            temp = current.next
+            current.next = previous
+            previous = current 
+            current = temp
+        self.head = previous
   
     ## Advanced/ Exercises
     # returns the value at the middle element in the singly linked list
@@ -126,3 +201,22 @@ class LinkedList:
             current = current.next
 
         current.next = self.head # make the last node link to first node
+
+veggie_node = Node("carrots")
+candy_node = Node("sour patch kids", veggie_node)
+noodle_node = Node("noodle", candy_node)
+print (noodle_node.value)
+print(noodle_node.next.value)
+print(f"candy node's next is: {candy_node.next.value}")
+
+the_list = LinkedList()
+the_list.add_first('succulent')
+the_list.add_first('fern')
+the_list.add_first('grasses')
+
+length = the_list.length()
+
+print(f"length: {length}")
+
+
+# print(f"this is the food list linked list: {food_list.get_first(noodle_node)}")
