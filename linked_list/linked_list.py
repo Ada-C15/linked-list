@@ -73,7 +73,7 @@ class LinkedList:
     # method returns value of last node in linked list
     # returns None if linked list is empty
     # Time Complexity: O(n) - Would be O(1) if I added tail
-    # Space Complexity: O(1)?
+    # Space Complexity: O(1)
     def get_last(self):  
         if self.head == None:
             return None
