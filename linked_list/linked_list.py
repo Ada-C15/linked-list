@@ -88,18 +88,61 @@ class LinkedList:
     # Time Complexity: ?
     # Space Complexity: ?
     def add_last(self, value):
-        pass
+        new_node = Node(value)
+        if self.head == None:
+            self.head = new_node 
+            return self.head.value 
+
+        current = self.head
+        while current.next != None:
+            current = current.next 
+
+        current.next = new_node 
 
     # method to return the max value in the linked list
     # returns the data value and not the node
     def find_max(self):
-        pass
+        if self.head == None:
+            return None 
+
+        max = self.head.value 
+        current = self.head.next 
+
+        while current != None:
+            if max < current.value:
+                max = current.value 
+            current = current.next 
+
+        return max 
 
     # method to delete the first node found with specified value
     # Time Complexity: ?
     # Space Complexity: ?
     def delete(self, value):
-        pass
+        list_length = self.length()
+        if list_length == 0:
+            return None 
+        
+        current = self.head 
+        previous = None 
+
+        while current and current.next != None:
+            if current.value == value:
+                if (previous == None):
+                    self.head = current.next 
+                    return True 
+
+                elif (current and current.next != None):
+                    previous.next = current.next 
+                    return True 
+
+            previous = current 
+            current = current.next
+
+        if (current.value == value):
+            previous.next = None 
+            return True  
+        return False 
 
     # method to print all the values in the linked list
     # Time Complexity: ?
@@ -119,7 +162,19 @@ class LinkedList:
     # Time Complexity: ?
     # Space Complexity: ?
     def reverse(self):
-        pass
+        if self.head == None:
+            return None 
+        current = self.head 
+        previous = None 
+
+        while current:
+            temporary = current.next 
+            current.next = previous 
+            previous = current 
+            current = temporary 
+
+        self.head = previous 
+        return self.head 
 
     ## Advanced/ Exercises
     # returns the value at the middle element in the singly linked list
