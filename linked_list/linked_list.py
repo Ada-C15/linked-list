@@ -14,10 +14,10 @@ class LinkedList:
 # ___________________________________________________
     # returns the value in the first node
     # returns None if the list is empty
-    # Time Complexity: ? O(1)
-    # Space Complexity: ? O(1)
+    # Time Complexity: O(1)
+    # Space Complexity: O(1)
 # ___________________________________________________ 
-    def get_first(self): # OK - passed
+    def get_first(self):  
         if self.head != None:
             return self.head.value
 # ___________________________________________________        
