@@ -16,31 +16,44 @@ class LinkedList:
     # Time Complexity: ?
     # Space Complexity: ?
     def get_first(self):
-        pass
-
-
+        if self.head == None:
+            return None 
+        else: 
+            return self.head.value
 
     # method to add a new node with the specific data value in the linked list
     # insert the new node at the beginning of the linked list
     # Time Complexity: ?
     # Space Complexity: ?
     def add_first(self, value):
-        new_node = Node(value)
-        new_node.next = head 
-        return new_node 
+        new_node = Node(value, next_node=self.head)
+        self.head = new_node
+
 
     # method to find if the linked list contains a node with specified value
     # returns true if found, false otherwise
     # Time Complexity: ?
     # Space Complexity: ?
     def search(self, value):
-        pass
+        current = self.head 
+        
+        while current:
+            if current.value == value:
+                return True
+            current = current.next 
+
+        return False 
 
     # method that returns the length of the singly linked list
     # Time Complexity: ?
     # Space Complexity: ?
     def length(self):
-        pass
+        counter = 0
+        current = self.head
+        while current != None:
+            current = current.next
+            counter +=1 
+        return counter
 
     # method that returns the value at a given index in the linked list
     # index count starts at 0
@@ -55,7 +68,12 @@ class LinkedList:
     # Time Complexity: ?
     # Space Complexity: ?
     def get_last(self):
-        pass
+        if self.head == None:
+            return None 
+        current = self.head
+        while current.next != None:
+            current = current.next 
+        return current.value
 
     # method that inserts a given value as a new last node in the linked list
     # Time Complexity: ?
