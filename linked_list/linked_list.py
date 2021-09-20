@@ -118,8 +118,8 @@ class LinkedList:
 
 
     # method to delete the first node found with specified value
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
     def delete(self, value):
         current = self.head
         if current:
@@ -151,10 +151,22 @@ class LinkedList:
 
     # method to reverse the singly linked list
     # note: the nodes should be moved and not just the values in the nodes
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n^2) Yiiikes!
+    # Space Complexity: O(1)
     def reverse(self):
-        pass
+        current = self.head.next
+        new_head = self.tail
+        while current:
+            if current.next == self.tail:
+                self.tail.next = current
+                self.tail = current
+                if self.tail == self.head:
+                    self.head = new_head
+                    current = None
+                else:
+                    current = self.head
+            else:
+                current = current.next
 
     ## Advanced/ Exercises
     # returns the value at the middle element in the singly linked list
