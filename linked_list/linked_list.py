@@ -166,10 +166,29 @@ class LinkedList:
         if current.value == value:
             self.head = self.head.next
             self.size -= 1
-            #self.head.previous = None
+            self.head.previous = None
+            return
 
         while current:
-            return
+            if current.next == None:
+                if current.value == value:
+                    previous = current.previous
+                    self.tail = previous
+                    previous.next = None
+                    current.previous = None
+                    current = None
+                    self.size -= 1
+                    return
+            if current.value == value:
+                next = current.next
+                previous = current.previous
+                next.previous = previous
+                current.previous = None
+                current.next = None
+                self.size -= 1
+                return
+
+            current = current.next
 
             # method to print all the values in the linked list
             # Time Complexity: ?
