@@ -4,10 +4,9 @@ import math
 # Defines a node in the singly linked list
 class Node:
 
-    def __init__(self, value, next_node = None, marked = False):
+    def __init__(self, value, next_node = None):
         self.value = value
         self.next = next_node
-        self.marked = marked
 
 # Defines the singly linked list
 class LinkedList:
@@ -195,10 +194,14 @@ class LinkedList:
     def find_nth_from_end(self, n):
         if self.head == None:
             return None
-        else:
-            length = self.length()
-            nth_from_end = length - 1 - n
-            return self.get_at_index(nth_from_end)
+
+        length = self.length()
+            
+        if n > length - 1:
+            return None
+
+        nth_from_end = length - 1 - n
+        return self.get_at_index(nth_from_end)
 
 
     # checks if the linked list has a cycle. A cycle exists if any node in the
@@ -210,12 +213,14 @@ class LinkedList:
         if self.head == None:
             return False
         current_node = self.head
+        nodes_checked = set()
         while current_node.next != None:
-            current_node = current_node.next
-            if current_node.marked:
+            if current_node in nodes_checked:
                 return True
-            current_node.marked = True
+            nodes_checked.add(current_node)
+            current_node = current_node.next
         return False
+
 
     # Helper method for tests
     # Creates a cycle in the linked list for testing purposes
