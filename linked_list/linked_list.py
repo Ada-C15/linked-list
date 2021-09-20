@@ -29,6 +29,8 @@ class LinkedList:
     # Space Complexity: ?
     def add_first(self, value):
         new_node = Node(value, next_node=self.head)
+        if self.head == None:
+            self.tail = new_node
         self.head = new_node
         self.size += 1
 
@@ -70,20 +72,31 @@ class LinkedList:
 
     # method that returns the value of the last node in the linked list
     # returns None if the linked list is empty
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
     def get_last(self):
-        current = self.head
-        while current:
-            if current.next == None:
-                return current.value
-            current = current.next
+        # current = self.head
+        # while current:
+        #     if current.next == None:
+        #         return current
+        #     current = current.next
+        if self.tail:
+            return self.tail.value
+        return None
 
     # method that inserts a given value as a new last node in the linked list
     # Time Complexity: ?
     # Space Complexity: ?
     def add_last(self, value):
-        pass
+        new_node = Node(value, next_node=None)
+        print (self.size)
+        if self.tail:
+            self.tail.next = new_node
+            self.tail = new_node
+            self.size += 1
+        else:
+            self.add_first(value)
+        
 
     # method to return the max value in the linked list
     # returns the data value and not the node
