@@ -50,7 +50,7 @@ class LinkedList:
     # Time Complexity: ?
     # Space Complexity: ?
     def length(self):
-        pass
+        return self.size
 
     # method that returns the value at a given index in the linked list
     # index count starts at 0
