@@ -8,15 +8,16 @@ class Node:
 
 # Defines the singly linked list
 class LinkedList:
-    def __init__(self, size = 0, tail = None):
+    def __init__(self, size = 0, tail = None, max = None):
         self.head = None # keep the head private. Not accessible outside this class
         self.size = size
         self.tail = tail
+        # self.max = max
 
     # returns the value in the first node
     # returns None if the list is empty
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(1)
+    # Space Complexity: O(1)
     def get_first(self):
         if self.head:
             return self.head.value
@@ -25,12 +26,15 @@ class LinkedList:
 
     # method to add a new node with the specific data value in the linked list
     # insert the new node at the beginning of the linked list
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(1)
+    # Space Complexity: O(1)
     def add_first(self, value):
         new_node = Node(value, next_node=self.head)
         if self.head == None:
             self.tail = new_node
+        #     self.max = new_node
+        # if new_node.isInt new_node.value > self.max.value:
+        #     self.max = new_node
         self.head = new_node
         self.size += 1
 
@@ -85,15 +89,16 @@ class LinkedList:
         return None
 
     # method that inserts a given value as a new last node in the linked list
-    # Time Complexity: ?
+    # Time Complexity: O(1)
     # Space Complexity: ?
     def add_last(self, value):
         new_node = Node(value, next_node=None)
-        print (self.size)
         if self.tail:
             self.tail.next = new_node
             self.tail = new_node
             self.size += 1
+            # if new_node.value > self.max.value:
+            #     self.max = new_node
         else:
             self.add_first(value)
         
@@ -101,13 +106,35 @@ class LinkedList:
     # method to return the max value in the linked list
     # returns the data value and not the node
     def find_max(self):
-        pass
+        current = self.head
+        if current:
+            max_value = self.head.value
+            while current:
+                if current.value > max_value:
+                    max_value = current.value
+                current = current.next
+            return max_value
+        return None
+
 
     # method to delete the first node found with specified value
     # Time Complexity: ?
     # Space Complexity: ?
     def delete(self, value):
-        pass
+        current = self.head
+        if current:
+            if current.value == value:
+                self.head = current.next
+                self.size -= 1
+            else:
+                while current:
+                    if current.next and current.next.value == value:
+                        current.next = current.next.next
+                        self.size -= 1
+                        if current.next == None:
+                            self.tail = current
+                    current = current.next
+
 
     # method to print all the values in the linked list
     # Time Complexity: ?
