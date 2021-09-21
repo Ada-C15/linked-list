@@ -151,6 +151,7 @@ class LinkedList:
 
         while current_node.next != None:
             if current_node.value == value:
+                
                 if prev_node:
                     prev_node = current_node.next
                 else:
