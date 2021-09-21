@@ -9,12 +9,12 @@ class Node:
 # Defines the singly linked list
 class LinkedList:
     def __init__(self):
-      self.head = None # keep the head private. Not accessible outside this class
+    self.head = None # keep the head private. Not accessible outside this class
 
     # returns the value in the first node
     # returns None if the list is empty
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(1)
+    # Space Complexity: O(1)
     def get_first(self):
         first = self.head
         if first == None:
@@ -85,10 +85,8 @@ class LinkedList:
         return current.value
 
     # method that inserts a given value as a new last node in the linked list
-    # Time Complexity: ?
-    # Space Complexity: ?
-    # you have nothing, then add something. 
-    # 5,4
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
     def add_last(self, value):
         current = self.head
         while current:
@@ -98,13 +96,6 @@ class LinkedList:
         if current == None:
             current = Node(value)
             self.head = current
-
-        # current = self.head
-        # if current == None:
-        #     current = Node(value)
-        #     self.head = current
-        # else:
-        #     current = current.next
 
 
     # method to return the max value in the linked list
@@ -122,8 +113,8 @@ class LinkedList:
         return max
 
     # method to delete the first node found with specified value
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(1)
+    # Space Complexity: O(n)
     def delete(self, value):
         curr = self.head
         prev = None
@@ -143,8 +134,8 @@ class LinkedList:
             curr = curr.next
 
     # method to print all the values in the linked list
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(n)
     def visit(self):
         helper_list = []
         current = self.head
@@ -157,11 +148,9 @@ class LinkedList:
 
     # method to reverse the singly linked list
     # note: the nodes should be moved and not just the values in the nodes
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
     def reverse(self):
-        # 123
-
         prev = None
         current = self.head
         while current is not None:
