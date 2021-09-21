@@ -19,7 +19,7 @@ class LinkedList:
         if self.head == None:
             return None
         
-        return self.head.data
+        return self.head.value
 
     # method to add a new node with the specific data value in the linked list
     # insert the new node at the beginning of the linked list
@@ -140,26 +140,36 @@ class LinkedList:
         return max_val
 
     # method to delete the first node found with specified value
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
     def delete(self, value):
-        current_node = self.head
-        prev_node = None
+        temp = self.head
+        prev = self.head
 
-        if current_node == None:
+        if self.head == None: 
             return None
 
-        while current_node.next != None:
-            if current_node.value == value:
-                
-                if prev_node:
-                    prev_node = current_node.next
-                else:
-                    self.head = current_node.next
-                
-            prev_node = current_node
-            current_node = current_node.next
+        if temp.value == value:
+            if temp.next is None:
+                return None
+            else:
+                temp.value = temp.next.value
+                temp.next = temp.next.next
         
+
+        while temp.next is not None and temp.value != value:
+            prev = temp
+            temp = temp.next
+
+        if temp.next is None and temp.value != value:
+            prev = temp
+            temp = temp.next
+        
+        elif temp.next is None and temp.value == value:
+            prev.next = None
+
+        else:
+            prev.next = temp.next    
 
     # method to print all the values in the linked list
     # Time Complexity: ?
@@ -179,8 +189,18 @@ class LinkedList:
     # Time Complexity: ?
     # Space Complexity: ?
     def reverse(self):
-        pass
-  
+        prev = None
+        current = self.head
+
+        while current is not None:
+            next = current.next
+            current.next = prev
+            prev = current
+            current = next
+
+        self.head = prev 
+
+ 
     ## Advanced/ Exercises
     # returns the value at the middle element in the singly linked list
     # Time Complexity: ?
