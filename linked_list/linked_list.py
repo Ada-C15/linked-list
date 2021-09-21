@@ -105,8 +105,8 @@ class LinkedList:
         return current_node.value
 
     # method that inserts a given value as a new last node in the linked list
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(n)
     def add_last(self, value):
         new_node = Node(value)
 
@@ -200,7 +200,7 @@ class LinkedList:
 
         self.head = prev 
 
- 
+
     ## Advanced/ Exercises
     # returns the value at the middle element in the singly linked list
     # Time Complexity: ?
