@@ -69,7 +69,6 @@ class LinkedList:
             current = current.next
             counter += 1
 
-
     # method that returns the value of the last node in the linked list
     # returns None if the linked list is empty
     # Time Complexity: O(n)
@@ -134,8 +133,8 @@ class LinkedList:
         self.size -= 1
 
     # method to print all the values in the linked list
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(n)
     def visit(self):
         helper_list = []
         current = self.head
@@ -166,25 +165,49 @@ class LinkedList:
 
     ## Advanced/ Exercises
     # returns the value at the middle element in the singly linked list
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
     def find_middle_value(self):
-        pass
+        middle_index = (self.size // 2)
+        return self.get_at_index(middle_index)
 
     # find the nth node from the end and return its value
     # assume indexing starts at 0 while counting to n
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
     def find_nth_from_end(self, n):
-        pass
+        index = (self.size - n) - 1
+        return self.get_at_index(index)
+
+    # returns the node at a given index, rather than the value
+    def get_node_at_index(self, index):
+        if (self.size + 1) < index:
+            return None
+
+        counter = 0
+        current = self.head
+        while current:
+            if counter == index:
+                return current
+            current = current.next
+            counter += 1
 
     # checks if the linked list has a cycle. A cycle exists if any node in the
     # linked list links to a node already visited.
     # returns true if a cycle is found, false otherwise.
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
     def has_cycle(self):
-        pass
+        if self.size == 0:
+            return False
+
+        current = self.head
+
+        for i in range(0, self.size):
+            current = self.get_node_at_index(i)
+            if current.next == self.head:
+                return True
+        return False
 
     # Helper method for tests
     # Creates a cycle in the linked list for testing purposes
