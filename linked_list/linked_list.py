@@ -11,20 +11,20 @@ class LinkedList:
     def __init__(self):
       self.head = None # keep the head private. Not accessible outside this class
 
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(1)
+    # Space Complexity: O(1)
     def get_first(self):
         if self.head is None:
             return None
         return self.head.value
 
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(1)
+    # Space Complexity: O(1)
     def add_first(self, value):
         self.head = Node(value, self.head)
 
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
     def search(self, value):
         current = self.head
         while current:
@@ -33,8 +33,8 @@ class LinkedList:
                 current = current.next
         return False
 
-	# Time Complexity: ?
-    # Space Complexity: ?
+	# Time Complexity: O(n)
+    # Space Complexity: O(1)
     def length(self):
         if self.head is None:
             return 0
@@ -45,8 +45,8 @@ class LinkedList:
             current = current.next
         return count
 
-	# Time Complexity: ?
-    # Space Complexity: ?
+	# Time Complexity: O(n)
+    # Space Complexity: O(1)
     def get_at_index(self, index):
         if self.head is None:
             return None
@@ -59,8 +59,8 @@ class LinkedList:
             return current.value
         return None
 
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
     def get_last(self):
         if self.head is None:
             return None
@@ -69,8 +69,8 @@ class LinkedList:
             current = current.next
         return current.value
 
-	# Time Complexity: ?
-    # Space Complexity: ?
+	# Time Complexity: O(n)  --the cost of getting there
+    # Space Complexity: O(1)
     def add_last(self, value):
         if self.head is None:
             self.add_first(value)
@@ -80,7 +80,8 @@ class LinkedList:
             current = current.next
         current.next = Node(value)
 
-    # method to return the max value in the linked list
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
     # returns the data value and not the node
     def find_max(self):
         if self.head is None:
@@ -93,8 +94,8 @@ class LinkedList:
             current = current.next
         return max_value
 
-	# Time Complexity: ?
-    # Space Complexity: ?
+	# Time Complexity: O(n)
+    # Space Complexity: O(1)
     def delete(self, value):
         if self.head is None:
             return None
@@ -120,10 +121,6 @@ class LinkedList:
         
         print(", ".join(helper_list))
 
-    # method to reverse the singly linked list
-    # note: the nodes should be moved and not just the values in the nodes
-    # Time Complexity: ?
-    # Space Complexity: ?
     def reverse_helper(self, current):
         if current.next.next is None:
             self.head = current.next
@@ -134,6 +131,8 @@ class LinkedList:
         current.next.next = current
         return current
 
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
     def reverse(self):
         if self.head is None or self.head.next is None:
             return
