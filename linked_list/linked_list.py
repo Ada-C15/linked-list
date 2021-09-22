@@ -26,13 +26,11 @@ class LinkedList:
     # Time Complexity: ?
     # Space Complexity: ?
     def search(self, value):
-        if self.head is None:
-            return False
         current = self.head
-        while current.value != value:
-            current = current.next
-        if current.value == value:
-            return True
+        while current:
+                if current.value == value:
+                    return True
+                current = current.next
         return False
 
 	# Time Complexity: ?
@@ -126,9 +124,22 @@ class LinkedList:
     # note: the nodes should be moved and not just the values in the nodes
     # Time Complexity: ?
     # Space Complexity: ?
+    def reverse_helper(self, current):
+        if current.next.next is None:
+            self.head = current.next
+            current.next.next = current
+            return
+
+        self.reverse_helper(current.next)
+        current.next.next = current
+        return current
+
     def reverse(self):
-        pass
-  
+        if self.head is None or self.head.next is None:
+            return
+        new_end = self.reverse_helper(self.head)
+        new_end.next = None
+
     ## Advanced/ Exercises
     # returns the value at the middle element in the singly linked list
     # Time Complexity: ?
