@@ -24,16 +24,16 @@ class LinkedList:
 
     # method to add a new node with the specific data value in the linked list
     # insert the new node at the beginning of the linked list
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity:O(1)
+    # Space Complexity: O(n)
     def add_first(self, value):
         node = Node(value, next_node = self.head)
         self.head = node
 
     # method to find if the linked list contains a node with specified value
     # returns true if found, false otherwise
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: 0
     def search(self, value):
         current_node = self.head
         while current_node != None:
@@ -127,9 +127,13 @@ class LinkedList:
         while current_node != None:
             if current_node.next:
                 if current_node.next.value == value:
-                    current_node.next == current_node.next.next
+                    print(current_node.value, current_node.next.value)
+                    current_node.next = current_node.next.next
                     return
             current_node = current_node.next
+            print(current_node.value, current_node.next.value, "last")
+           
+    
 
     # method to print all the values in the linked list
     # Time Complexity: ?
@@ -157,6 +161,7 @@ class LinkedList:
             current_node.next = previous_node
             previous_node = current_node
             current_node = next_node
+        self.head = previous_node
 
   
     # ## Advanced/ Exercises
