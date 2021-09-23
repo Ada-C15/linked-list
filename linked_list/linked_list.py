@@ -5,6 +5,7 @@ class Node:
     def __init__(self, value, next_node = None):
         self.value = value
         self.next = next_node
+        self.flag = False
 
 # Defines the singly linked list
 class LinkedList:
@@ -32,9 +33,6 @@ class LinkedList:
         new_node = Node(value, next_node=self.head)
         if self.head == None:
             self.tail = new_node
-        #     self.max = new_node
-        # if new_node.isInt new_node.value > self.max.value:
-        #     self.max = new_node
         self.head = new_node
         self.size += 1
 
@@ -79,26 +77,19 @@ class LinkedList:
     # Time Complexity: O(n)
     # Space Complexity: O(1)
     def get_last(self):
-        # current = self.head
-        # while current:
-        #     if current.next == None:
-        #         return current
-        #     current = current.next
         if self.tail:
             return self.tail.value
         return None
 
     # method that inserts a given value as a new last node in the linked list
     # Time Complexity: O(1)
-    # Space Complexity: ?
+    # Space Complexity: O(1)
     def add_last(self, value):
         new_node = Node(value, next_node=None)
         if self.tail:
             self.tail.next = new_node
             self.tail = new_node
             self.size += 1
-            # if new_node.value > self.max.value:
-            #     self.max = new_node
         else:
             self.add_first(value)
         
@@ -137,8 +128,8 @@ class LinkedList:
 
 
     # method to print all the values in the linked list
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(n)
     def visit(self):
         helper_list = []
         current = self.head
@@ -151,7 +142,7 @@ class LinkedList:
 
     # method to reverse the singly linked list
     # note: the nodes should be moved and not just the values in the nodes
-    # Time Complexity: O(n^2) Yiiikes!
+    # Time Complexity: O(n^2) Yiikes!
     # Space Complexity: O(1)
     def reverse(self):
         current = self.head.next
@@ -170,17 +161,19 @@ class LinkedList:
 
     ## Advanced/ Exercises
     # returns the value at the middle element in the singly linked list
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
     def find_middle_value(self):
-        pass
+        middle = self.size // 2
+        return self.get_at_index(middle)
 
     # find the nth node from the end and return its value
     # assume indexing starts at 0 while counting to n
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
     def find_nth_from_end(self, n):
-        pass
+        index = self.size - n - 1
+        return self.get_at_index(index)
 
     # checks if the linked list has a cycle. A cycle exists if any node in the
     # linked list links to a node already visited.
@@ -188,7 +181,22 @@ class LinkedList:
     # Time Complexity: ?
     # Space Complexity: ?
     def has_cycle(self):
-        pass
+        # current = self.head
+        # while current:
+        #     print(current.value)
+        #     print(current.flag)
+        #     if current.flag:
+        #         return True
+        #     current.flag = True
+        #     current = current.next
+        # return False
+        current = self.head
+        while current:
+            current.flag = True
+            if current.next and current.next.flag:
+                return True
+            current = current.next
+        return False
 
     # Helper method for tests
     # Creates a cycle in the linked list for testing purposes
