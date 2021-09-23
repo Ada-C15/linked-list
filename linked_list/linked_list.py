@@ -21,6 +21,7 @@ class LinkedList:
     def get_first(self):
         if self.head == None:
             return None
+
         return self.head.value
 
     # method to add a new node with the specific data value in the linked list
@@ -28,9 +29,8 @@ class LinkedList:
     # Time Complexity: O(1)
     # Space Complexity: O(1)
     def add_first(self, value):
-        
-        new_node = Node(value, next_node=self.head)
-        
+        new_node = Node(value)
+        new_node.next = self.head
         self.head = new_node
 
     # method to find if the linked list contains a node with specified value
@@ -182,25 +182,41 @@ class LinkedList:
 
     ## Advanced/ Exercises
     # returns the value at the middle element in the singly linked list
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
     def find_middle_value(self):
-        pass
+        middle = self.length()//2
+        return self.get_at_index(middle)
 
     # find the nth node from the end and return its value
     # assume indexing starts at 0 while counting to n
     # Time Complexity: ?
     # Space Complexity: ?
     def find_nth_from_end(self, n):
-        pass
+        if not self.head or n >= self.size:
+            return None
+        
+        idx = self.length()-1-n
+        return self.get_at_index(idx)
+        
+        
 
     # checks if the linked list has a cycle. A cycle exists if any node in the
     # linked list links to a node already visited.
     # returns true if a cycle is found, false otherwise.
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(n)
     def has_cycle(self):
-        pass
+        s = set()
+        current = self.head
+        while current:
+            if current in s:
+                return True
+
+            s.add(current)
+            current = current.next
+ 
+        return False
 
     # Helper method for tests
     # Creates a cycle in the linked list for testing purposes
