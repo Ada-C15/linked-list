@@ -44,7 +44,7 @@ class LinkedList:
 
     # method that returns the length of the singly linked list
     # Time Complexity: O(n)
-    # Space Complexity: # because not making a new list or data structure
+    # Space Complexity: O(1) because not making a new list or data structure
     def length(self):
         count = 0
         current = self.head
@@ -58,7 +58,7 @@ class LinkedList:
     # index count starts at 0
     # returns None if there are fewer nodes in the linked list than the index value
     # Time Complexity: O(n)
-    # Space Complexity: O(1) # because not making a new list or data structure
+    # Space Complexity: O(1)  because not making a new list or data structure
     def get_at_index(self, index):
         if self.length() < index:
             return None
