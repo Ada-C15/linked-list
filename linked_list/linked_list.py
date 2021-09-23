@@ -68,8 +68,8 @@ class LinkedList:
     # method that returns the value at a given index in the linked list
     # index count starts at 0
     # returns None if there are fewer nodes in the linked list than the index value
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
     def get_at_index(self, index):
         current_node = self.get_node_at_index(index)
         return current_node.value if current_node else None
@@ -86,8 +86,8 @@ class LinkedList:
 
     # method that returns the value of the last node in the linked list
     # returns None if the linked list is empty
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
     def get_last(self):
         if self.head is None:
             return None
@@ -95,8 +95,8 @@ class LinkedList:
         return self.get_node_at_index(list_length - 1).value
 
     # method that inserts a given value as a new last node in the linked list
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
 
     def add_last(self, value):
         node_to_add_last = Node(value)
@@ -115,6 +115,8 @@ class LinkedList:
 
     # method to return the max value in the linked list
     # returns the data value and not the node
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
 
     def find_max(self):
         if self.head is None:
@@ -149,8 +151,8 @@ class LinkedList:
             current_node = current_node.next
 
     # method to print all the values in the linked list
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(n)
 
     def visit(self):
         helper_list = []
@@ -164,8 +166,8 @@ class LinkedList:
 
     # method to reverse the singly linked list
     # note: the nodes should be moved and not just the values in the nodes
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
     def reverse(self):
         # empty list - do nothing
         if self.head is None:
