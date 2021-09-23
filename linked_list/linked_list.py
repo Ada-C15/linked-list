@@ -12,12 +12,6 @@ class LinkedList:
     def __init__(self):
         self.head = None  # keep the head private. Not accessible outside this class
 
-    def __print__(self):
-        current_node = self.head
-        while current_node is not None:
-            print(current_node)
-            current_node = current_node.next
-
     # returns the value in the first node
     # returns None if the list is empty
     # Time Complexity: O(1)
@@ -43,11 +37,18 @@ class LinkedList:
 
     # method to find if the linked list contains a node with specified value
     # returns true if found, false otherwise
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
 
     def search(self, value):
-        pass
+        if self.head is None:
+            return False
+        current_node = self.head
+        while current_node is not None:
+            if current_node.value == value:
+                return True
+            current_node = current_node.next
+        return False
 
     # method that returns the length of the singly linked list
     # Time Complexity: O(n)
@@ -116,11 +117,21 @@ class LinkedList:
     # returns the data value and not the node
 
     def find_max(self):
-        pass
+        if self.head is None:
+            return
+
+        current_node = self.head
+        max = current_node.value
+        while current_node is not None:
+            current_node = current_node.next
+            if current_node is not None and current_node.value > max:
+                max = current_node.value
+        return max
 
     # method to delete the first node found with specified value
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(1)
+
     def delete(self, value):
         # empty list edge case
         if self.head is None:
@@ -156,7 +167,11 @@ class LinkedList:
     # Time Complexity: ?
     # Space Complexity: ?
     def reverse(self):
-        pass
+        # empty list - do nothing
+        if self.head is None:
+            return
+
+        current_node = self.head
 
     # Advanced/ Exercises
     # returns the value at the middle element in the singly linked list
