@@ -171,12 +171,30 @@ class LinkedList:
         if self.head is None:
             return
 
+        # just one element in a list - do nothing
+        if self.head.next is None:
+            return
+
+        prev_node = None
         current_node = self.head
+        next_node = current_node.next
+
+        while True:
+            current_node.next = prev_node
+            prev_node = current_node
+            current_node = next_node
+            if next_node is not None:
+                next_node = next_node.next
+            else:
+                break
+
+        self.head = prev_node
 
     # Advanced/ Exercises
     # returns the value at the middle element in the singly linked list
     # Time Complexity: ?
     # Space Complexity: ?
+
     def find_middle_value(self):
         pass
 
