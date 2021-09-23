@@ -13,7 +13,6 @@ class LinkedList:
         self.head = None # keep the head private. Not accessible outside this class
         self.size = size
         self.tail = tail
-        # self.max = max
 
     # returns the value in the first node
     # returns None if the list is empty
