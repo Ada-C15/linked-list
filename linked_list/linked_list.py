@@ -74,6 +74,7 @@ class LinkedList:
     # Time Complexity: O(n)
     # Space Complexity: O(1)
     def get_last(self):
+        #check if there is a head
         if self.head == None:
             return None
 
@@ -208,7 +209,18 @@ class LinkedList:
     # Time Complexity: ?
     # Space Complexity: ?
     def find_nth_from_end(self, n):
-        pass
+        counter = 1
+        #get the length of the list
+        get_length = self.length()
+        current = self.head
+        while current:
+            if counter == (get_length - n):
+                return current.value
+            current = current.next
+            counter += 1
+            
+      
+        
 
     # checks if the linked list has a cycle. A cycle exists if any node in the
     # linked list links to a node already visited.
