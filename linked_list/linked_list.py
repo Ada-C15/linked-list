@@ -44,7 +44,7 @@ class LinkedList:
 
     # method that returns the length of the singly linked list
     # Time Complexity: O(n)
-    # Space Complexity: O(n)
+    # Space Complexity: # because not making a new list or data structure
     def length(self):
         count = 0
         current = self.head
@@ -58,7 +58,7 @@ class LinkedList:
     # index count starts at 0
     # returns None if there are fewer nodes in the linked list than the index value
     # Time Complexity: O(n)
-    # Space Complexity: O(n)
+    # Space Complexity: O(1) # because not making a new list or data structure
     def get_at_index(self, index):
         if self.length() < index:
             return None
@@ -74,7 +74,7 @@ class LinkedList:
     # method that returns the value of the last node in the linked list
     # returns None if the linked list is empty
     # Time Complexity: O(n)
-    # Space Complexity: O(1)
+    # Space Complexity: O(n) becuase you traverse the whole list
     def get_last(self):
         current = self.head
 
@@ -121,8 +121,7 @@ class LinkedList:
 
     # method to delete the first node found with specified value
     # Time Complexity: O(1)
-    # Space Complexity: O(1)
-
+    # Space Complexity: O(n) time complexity is O(n) as you have t ofind the node to delete it
     def delete(self, value):
         if not self.head:
             return
@@ -138,7 +137,7 @@ class LinkedList:
 
     # method to print all the values in the linked list
     # Time Complexity: O(n)
-    # Space Complexity: O(1)
+    # Space Complexity: O(n) since the function is building an array of values, this function has O(n) space complexity
     def visit(self):
         helper_list = []
         current = self.head
@@ -151,8 +150,8 @@ class LinkedList:
 
     # method to reverse the singly linked list
     # note: the nodes should be moved and not just the values in the nodes
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)?
+    # Space Complexity: O(n)?
     def reverse(self):
         if not self.head:
             return
