@@ -180,6 +180,8 @@ class LinkedList:
     # returns true if a cycle is found, false otherwise.
     # Time Complexity: O(n)??
     # Space Complexity: O(1)
+
+    # Hi Chris! I don't know why this doesn't pass the last test, and I kinda ran out of time to figure it out. Sorry!!
     def has_cycle(self):
         current = self.head
         while current:
