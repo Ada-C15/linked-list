@@ -209,12 +209,26 @@ class LinkedList:
     # Time Complexity: ?
     # Space Complexity: ?
     def reverse(self):
-        pass
 
+        if not self.head:
+            return None
+
+        current_node = self.head
+        previous_node = None
+
+        while current_node:
+            nxt_node = current_node.next
+            current_node.next = previous_node
+            previous_node = current_node
+            current_node = nxt_node
+
+        self.head = previous_node
+        return self.head
     ## Advanced/ Exercises
     # returns the value at the middle element in the singly linked list
     # Time Complexity: ?
     # Space Complexity: ?
+
     def find_middle_value(self):
         pass
 
