@@ -87,7 +87,7 @@ class LinkedList:
 
     # method that inserts a given value as a new last node in the linked list
     # Time Complexity: O(1)
-    # Space Complexity: O(1)
+    # Space Complexity: O(n)
     def add_last(self, value):
         
         new_node = Node(value)
@@ -115,7 +115,7 @@ class LinkedList:
         return max_value
 
     # method to delete the first node found with specified value
-    # Time Complexity: O(1)
+    # Time Complexity: O(n)
     # Space Complexity: O(1)
     def delete(self, value):
         current_node = self.head
@@ -136,7 +136,7 @@ class LinkedList:
 
     # method to print all the values in the linked list
     # Time Complexity: O(n)
-    # Space Complexity: O(1)
+    # Space Complexity: O(n)
     def visit(self):
         helper_list = []
         current = self.head
@@ -149,8 +149,8 @@ class LinkedList:
 
     # method to reverse the singly linked list
     # note: the nodes should be moved and not just the values in the nodes
-    # Time Complexity: ?
-    # Space Complexity: ?
+    # Time Complexity: O(n)
+    # Space Complexity: O(n)
     def reverse(self):
         previous_node = None
         current_node = self.head
