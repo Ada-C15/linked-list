@@ -25,7 +25,7 @@ class LinkedList:
     # method to add a new node with the specific data value in the linked list
     # insert the new node at the beginning of the linked list
     # Time Complexity: O(1)
-    # Space Complexity: O(1)
+    # Space Complexity: O(n)
     def add_first(self, value):
         self.head = Node(value, self.head)
 
@@ -120,8 +120,8 @@ class LinkedList:
         return max
 
     # method to delete the first node found with specified value
-    # Time Complexity: O(1)
-    # Space Complexity: O(n) time complexity is O(n) as you have t ofind the node to delete it
+    # Time Complexity: O(n)
+    # Space Complexity: O(1) time complexity is O(n) as you have t ofind the node to delete it
     def delete(self, value):
         if not self.head:
             return
