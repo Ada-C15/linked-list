@@ -132,16 +132,16 @@ class LinkedList:
             return None
 
         current = self.head
+        if current.value == value:
+            self.head = current.next
+            return
 
-        #iterate through the linkedlist
         while current != None: 
 
-        #if the data is in first node, delete it
             if current.value == value:
                 current = current.next
                 return
 
-        #if the data is in other nodes delete it
             prev = current
             current = current.next
             if current.value == value:
