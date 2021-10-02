@@ -88,14 +88,14 @@ class LinkedList:
     # Time Complexity: O(n)
     # Space Complexity: O(1)
     def add_last(self, value):
+        if not self.head:
+            self.head = Node(value)
+            return
         current = self.head
-        while current:
-            if current.next == None:
-                current.next = Node(value)
-
-        if current == None:
-            current = Node(value)
-            self.head = current
+        while current.next:
+            current = current.next
+            
+        current.next = Node(value)
 
 
     # method to return the max value in the linked list
