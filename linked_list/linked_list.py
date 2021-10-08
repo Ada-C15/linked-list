@@ -16,7 +16,10 @@ class LinkedList:
     # Time Complexity: ?
     # Space Complexity: ?
     def get_first(self):
-        pass
+        if self.head == None:
+            return None
+        return self.head.value
+
 
 
     # method to add a new node with the specific data value in the linked list
@@ -24,14 +27,24 @@ class LinkedList:
     # Time Complexity: ?
     # Space Complexity: ?
     def add_first(self, value):
-        pass
+        # next_node = self.head
+        self.head = Node(value, next_node = self.head)
+        
 
     # method to find if the linked list contains a node with specified value
     # returns true if found, false otherwise
     # Time Complexity: ?
     # Space Complexity: ?
     def search(self, value):
-        pass
+        node = self.head
+        while node != None:
+            if node.value != value:
+                node = node.next
+            else:
+                return True
+        return False
+        
+        
 
     # method that returns the length of the singly linked list
     # Time Complexity: ?
