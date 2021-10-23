@@ -5,11 +5,17 @@ class Node:
     def __init__(self, value, next_node = None):
         self.value = value
         self.next = next_node
+        
 
 # Defines the singly linked list
 class LinkedList:
     def __init__(self):
-      self.head = None # keep the head private. Not accessible outside this class
+      self.head = None #keep the head private.Not accessible outside class
+      self.len = 0
+
+      
+
+      
 
     # returns the value in the first node
     # returns None if the list is empty
@@ -29,6 +35,7 @@ class LinkedList:
     def add_first(self, value):
         # next_node = self.head
         self.head = Node(value, next_node = self.head)
+        self.len += 1 
         
 
     # method to find if the linked list contains a node with specified value
@@ -50,22 +57,39 @@ class LinkedList:
     # Time Complexity: ?
     # Space Complexity: ?
     def length(self):
-        pass
+        if self.head == None:
+            return 0
+        return self.len
 
+            
     # method that returns the value at a given index in the linked list
     # index count starts at 0
     # returns None if there are fewer nodes in the linked list than the index value
     # Time Complexity: ?
     # Space Complexity: ?
     def get_at_index(self, index):
-        pass
+        node = self.head
+        counter = 0
+        if self.len < index:
+            return None
+        while node != None:
+            
+            if counter == index:
+                return node.value
+            node = node.next
+            counter +=1 
+        return None
 
     # method that returns the value of the last node in the linked list
     # returns None if the linked list is empty
     # Time Complexity: ?
     # Space Complexity: ?
     def get_last(self):
-        pass
+        print(self.len)
+        self.get_at_index(self.len-1)
+       
+
+
 
     # method that inserts a given value as a new last node in the linked list
     # Time Complexity: ?
