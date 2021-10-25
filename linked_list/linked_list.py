@@ -114,7 +114,7 @@ class LinkedList:
         current = self.head
 
         while current.next:
-            current.next
+            current = current.next
         
         current.next = Node(value, None)
 
