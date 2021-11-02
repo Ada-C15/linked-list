@@ -12,6 +12,8 @@ class LinkedList:
     def __init__(self):
       self.head = None #keep the head private.Not accessible outside class
       self.len = 0
+      self.tail = None
+      self.max = 0
 
       
 
@@ -36,6 +38,7 @@ class LinkedList:
         # next_node = self.head
         self.head = Node(value, next_node = self.head)
         self.len += 1 
+        self.update_max(value)
         
 
     # method to find if the linked list contains a node with specified value
@@ -86,7 +89,8 @@ class LinkedList:
     # Space Complexity: ?
     def get_last(self):
         print(self.len)
-        self.get_at_index(self.len-1)
+        return self.get_at_index(self.len-1)
+        
        
 
 
@@ -95,18 +99,51 @@ class LinkedList:
     # Time Complexity: ?
     # Space Complexity: ?
     def add_last(self, value):
-        pass
+        
+        if self.len == 0:
+            self.tail = Node(value, next_node = None)
+            self.head = self.tail
+            self.update_max(value)
+
+        else:
+            self.tail.next = Node(value, next_node = None)
+            self.tail = self.tail.next
+            self.update_max(value)
+        
+        self.len += 1 
+        
 
     # method to return the max value in the linked list
     # returns the data value and not the node
     def find_max(self):
-        pass
+        return self.max
+
+    def update_max(self,value):
+        if value >= self.max:
+            self.max = value
+
+        
 
     # method to delete the first node found with specified value
     # Time Complexity: ?
     # Space Complexity: ?
     def delete(self, value):
-        pass
+        node = self.head
+        prev_node = None
+        while node != None:
+            if node.value != value:
+                prev_node = node
+                node = node.next
+            else:
+                if prev_node == None:
+                    self.head = node.next
+                    self.len -= 1
+                else:
+                    prev_node.next = node.next
+                    self.len -= 1 
+                break
+               
+        
 
     # method to print all the values in the linked list
     # Time Complexity: ?
@@ -126,7 +163,24 @@ class LinkedList:
     # Time Complexity: ?
     # Space Complexity: ?
     def reverse(self):
-        pass
+        # node = self.head
+        # self.head = self.tail
+        # self.tail = node
+       
+        # while node != None:
+        #     print("<<<", node.value)
+        #     if node.next == None:
+        #         break
+        #     else:
+        #         node_next = node.next
+        #         node1 = node.next
+        #         node1.next = node
+        #         node = node_next
+        
+            
+            
+        
+        
   
     ## Advanced/ Exercises
     # returns the value at the middle element in the singly linked list
