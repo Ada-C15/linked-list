@@ -37,21 +37,34 @@ class LinkedList:
     # Space Complexity: ? O(1) because we arent creating any new data structures, nothings being changed/added
     def search(self, value):
         current = self.head
+        if current == None:
+            return False
         while current:
             if current.value == value:
                 return True
             current = current.next
+            notTrue = True
+        if notTrue == True:
+            return False
+
+
 
     # method that returns the length of the singly linked list
     # Time Complexity: ?
     # Space Complexity: ?
     def length(self):
         if self.head == None:
-            return None
+            return 0
+
         current = self.head
+        node_count = 1
+
         while current.next != None:
             current = current.next
-        return current.value
+            node_count += 1
+        if node_count:
+            return node_count
+        # return current.value
 
     # method that returns the value at a given index in the linked list
     # index count starts at 0
@@ -77,16 +90,15 @@ class LinkedList:
         if self.head == None:
             return None
         current = self.head
-        while current.nedxt != None:
+        while current.next != None:
             current = current.next
-        return current.data
+        return current.value
 
-    def get_last_Oof1(self):
-        if self.head == None:
-            return None
+    # def get_last(self): # O(1)
+    #     if self.head == None:
+    #         return None
 
-        return self.tail.data
-
+    #     return self.tail.data
 
     # method that inserts a given value as a new last node in the linked list
     # Time Complexity: ?
