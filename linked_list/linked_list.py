@@ -9,7 +9,7 @@ class Node:
 # Defines the singly linked list
 class LinkedList:
     def __init__(self):
-      self.head = None # keep the head private. Not accessible outside this class
+        self.head = None # keep the head private. Not accessible outside this class
 
     # returns the value in the first node
     # returns None if the list is empty
@@ -87,26 +87,26 @@ class LinkedList:
             return None
         
         current = self.head
-        while current != None:
-            if current.next != None:
-                current = current.next
-            return current.value
-        return None
+
+        while current.next != None:
+            current = current.next
+        return current.value
 
     # method that inserts a given value as a new last node in the linked list
     # Time Complexity: O(n)
     # Space Complexity: O(1)
     def add_last(self, value):
-        new_node = Node(value)
+        tail = Node(value)
 
         if self.head == None:
-            self.head = new_node
+            self.head = tail
+            return
 
         current = self.head
         while current.next != None:
             current = current.next
 
-        current.next = new_node
+        current.next = tail
 
     # method to return the max value in the linked list
     # returns the data value and not the node
@@ -125,8 +125,8 @@ class LinkedList:
         return max_value
 
     # method to delete the first node found with specified value
-    # Time Complexity: O(1)
-    # Space Complexity: O(1)
+    # Time Complexity: O(n)
+    # Space Complexity: O(n) traversing the list
     def delete(self, value):
         if self.head == None: #edge case consideration for empty list
             return None
@@ -135,11 +135,14 @@ class LinkedList:
             self.head = self.head.next
 
         current = self.head
-        while current.next != None:
-            if current.next.value != value:
-                current = current.next
+        previous = None
+
+        while current != None:
+            if current.value == value:
+                previous.next = current.next
             else:
-                current.next = current.next.next
+                previous = current
+            current = current.next
 
     # method to print all the values in the linked list
     # Time Complexity: O(n) n length of the list
@@ -167,11 +170,13 @@ class LinkedList:
 
         current = self.head
         previous = None
+
         while current != None:
             next_node = current.next
             current.next = previous
             previous = current
             current = next_node
+
         self.head = previous
   
     ## Advanced/ Exercises
