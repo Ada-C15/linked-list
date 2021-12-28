@@ -2,11 +2,13 @@
 # Defines a node in the singly linked list
 class Node:
 
-    def __init__(self, value, next_node = None):
+    def __init__(self, value, next_node=None):
         self.value = value
         self.next = next_node
 
 # Defines the singly linked list
+
+
 class LinkedList:
     def __init__(self):
         self.head = None # keep the head private. Not accessible outside this class
@@ -59,7 +61,17 @@ class LinkedList:
     # Time Complexity: ?
     # Space Complexity: ?
     def get_at_index(self, index):
-        pass 
+        if self.length() < index:
+            return None
+
+        current = self.head
+        current_index = 0
+        while current != None:
+            if current_index == index:
+                return current.value
+            current = current.next
+            current_index += 1
+
     # method that returns the value of the last node in the linked list
     # returns None if the linked list is empty
     # Time Complexity: ?
@@ -97,6 +109,11 @@ class LinkedList:
     def delete(self, value):
         pass
 
+        value = self.head.value
+        self.head = self.head.next
+
+        return value
+
     # method to print all the values in the linked list
     # Time Complexity: ?
     # Space Complexity: ?
@@ -107,7 +124,7 @@ class LinkedList:
         while current:
             helper_list.append(str(current.value))
             current = current.next
-        
+
         print(", ".join(helper_list))
 
     # method to reverse the singly linked list
@@ -151,4 +168,4 @@ class LinkedList:
         while current.next != None:
             current = current.next
 
-        current.next = self.head # make the last node link to first node
+        current.next = self.head  # make the last node link to first node
