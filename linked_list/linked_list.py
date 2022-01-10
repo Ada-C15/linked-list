@@ -11,7 +11,7 @@ class Node:
 class LinkedList:
     def __init__(self):
         self.head = None  # keep the head private. Not accessible outside this class
-        self.tail = None
+        # self.tail = None
 
     # returns the value in the first node
     # returns None if the list is empty
@@ -74,19 +74,24 @@ class LinkedList:
     # Space Complexity: O(1)
 
     def get_last(self):
-        if self.head == None:
-            return None
-        return self.tail.value
+        current = self.head
+        while current:
+            if current.next == None:
+                return current.value
+            current = current.next
 
     # method that inserts a given value as a new last node in the linked list
     # Time Complexity: O(1)
     # Space Complexity: O(1)
     def add_last(self, value):
+        new_node = Node(value)
         if self.head == None:
-            self.head = Node(value, self.head)
-            self.tail = self.head
+            self.head = new_node
         else:
-            self.tail = Node(value, self.tail)
+            current = self.head
+            while current.next != None:
+                current = current.next
+            current.next = new_node
 
     # method to return the max value in the linked list
     # returns the value value and not the node
@@ -109,14 +114,15 @@ class LinkedList:
     def delete(self, value):
         if self.head == None:
             return None
-        if self.head.value == value:
+        elif self.head.value == value:
             self.head = self.head.next
-        else:
-            current = self.head.next
-            while current != None:
-                if current.value == value:
-                    current.next = current.next.next
-                current = current.next
+
+        current = self.head
+        while current.next:
+            if current.next.value == value:
+                current.next = current.next.next
+                return None
+            current = current.next
 
     # method to print all the values in the linked list
     # Time Complexity: O(n)
@@ -155,7 +161,6 @@ class LinkedList:
     # returns the value at the middle element in the singly linked list
     # Time Complexity: ?
     # Space Complexity: ?
-
 
     def find_middle_value(self):
         pass
