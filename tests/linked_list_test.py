@@ -299,3 +299,11 @@ def test_has_cycle(list):
     list.create_cycle()
 
     assert list.has_cycle() == True
+
+
+@pytest.mark.skip(reason="Going Further methods")
+def test_has_cycle_with_one_node(list):
+    list.add_first(1)
+    list.create_cycle()
+
+    assert list.has_cycle() == True
